@@ -1,0 +1,53 @@
+#user_header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  font-size: 1.5em;
+  width: 16em;
+  margin-top: 15px;
+}
+#user_card {
+  display: flex;
+  width: 90%;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #ccc;
+  border-radius: 15px;
+  justify-content: center;
+}
+#avatar {
+  position: relative;
+  top: -32px;
+}
+#text {
+  width: 90%;
+  margin: 22px auto;
+}
+#recommend {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin: 0 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+.recommend_card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+}
+.play_count {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  background: rgba(255,255,255,.7);
+  border-radius: 15px;
+}
+.recommend_name {
+  font-size: 10px;
+  text-align: left;
+}
+.recommend_card{
+  position: relative;
+}

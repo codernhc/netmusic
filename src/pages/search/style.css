@@ -1,0 +1,14 @@
+.searchList {
+  display: flex;
+  justify-content: space-between;
+}
+.musicName {
+  font-size: 1rem;
+}
+.musicArtist {
+  font-size: 0.5rem;
+  color: rgb(0, 0, 0);
+}
+.AiOutlineEllipsisStyle{
+  transform: rotate(90deg)
+}

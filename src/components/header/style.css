@@ -1,0 +1,13 @@
+#header_input {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid;
+}
+#search_icon {
+  position: relative;
+  left: 162px;
+  top: -21px;
+}
+#searchStyle {
+  position: relative;
+}

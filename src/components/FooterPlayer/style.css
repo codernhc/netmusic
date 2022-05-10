@@ -1,0 +1,12 @@
+#foot_player{
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+  /* color: rgb(40, 40, 40); */
+  z-index: 100;
+}
+#playerIcon{
+  font-size: 2em;
+}

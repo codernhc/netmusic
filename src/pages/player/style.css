@@ -1,0 +1,25 @@
+#player_header {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 10px;
+  align-items: center;
+  /* font-size: 1.5em; */
+  /* width: 16em; */
+  /* margin-top: 15px; */
+}
+.player_header_icon {
+  font-size: 1.6em;
+}
+#player_name {
+  font-size: 1.2em;
+}
+#singer_name {
+  font-size: 0.5em;
+  text-align: center;
+}
+#singer_name spen {
+  font-size: 0.4em;
+  border: 1px solid;
+  border-radius: 5px;
+}
