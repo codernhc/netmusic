@@ -5,7 +5,7 @@ import {
   useNavigate,
   // useLocation,
 } from 'react-router-dom'
-import { Input, InputGroup, List, Panel } from 'rsuite';
+import { Input, InputGroup, List, Panel, Loader } from 'rsuite';
 import { AiOutlineSearch, AiFillAudio, AiOutlinePlayCircle, AiOutlineEllipsis, AiOutlineArrowLeft } from 'react-icons/ai';
 import service from '../../service/index'
 import "./style.css";
@@ -32,14 +32,16 @@ export default function Search(): JSX.Element {
     alignItems: "center"
   }
 
+  const [loading, setLoading] = useState('');
+
   //获取input的值
-  const onChange = (value: string) => {
+  const onChange = async (value: string) => {
     setValue(value);
     // console.log(searchValue);
-    
+    const res = await service.instance.get(`/search/suggest?keywords=${value}&type=mobile`)
+    setLoading(res.data.result.allMatch);
   }
 
-  // 防抖
   const debounce = (func: () => void, wait: number) => {
     let timeout: NodeJS.Timeout;
     return function (...args: any[]) {
@@ -94,18 +96,15 @@ export default function Search(): JSX.Element {
 
   const [hotMusic, setHotMusic] = useState([]);
   useEffect(() => {
-    // 向/search/hot/detail发送请求
+    // /search/hot/detail
     service.instance.get(`/search/hot/detail`).then((res) => {
       setHotMusic(res.data.data);
     });
   }, []);
 
-  // 点击热门歌曲
   const hotMusicClk = (key: any): void => {
     console.log(key);
-    // key传入input
     setValue(key);
-    // 向/search发送请求
     service.instance.get(`/search?keywords=${key}`).then((res) => {
       setResult(res.data.result.songs);
     });
@@ -122,7 +121,7 @@ export default function Search(): JSX.Element {
             // defaultValue="薛之谦"
             value={searchValue}
             onChange={onChange}
-            onKeyDown={(e) => { if (e.key === "Enter") { search(); } }}
+            onKeyDown={(even) => { if (even.key === "Enter") { search(); } }}
           />
           <InputGroup.Button>
             <AiOutlineSearch onClick={search} />
@@ -165,28 +164,48 @@ export default function Search(): JSX.Element {
               </div>)
               :
               (<div>
-                <p>
-
-                </p>
-              </div>)}
+                {
+                  loading.length > 0 ? (
+                    <ul id='load'>
+                      {
+                        loading.map((item, index) => {
+                          return (
+                            <li key={index} onClick={hotMusicClk.bind(this, item.keyword)} className="load_li">
+                              <AiOutlineSearch onClick={search} className="load_icon"/>
+                              {item.keyword}
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
+                  ) : (
+                    <>
+                      <Loader center content="loading" />
+                    </>
+                  )
+                }
+              </div>)
+            }
           </>
         ) : (
-          <List>
-            {
-              hotMusic.map((item) => {
-                return (
-                  <List.Item key={item.searchWord} index={item.score} className="searchList" onClick={hotMusicClk.bind(this, item.searchWord)}>
-                    {/* 信息 */}
-                    <div>
-                      <div className='musicName'>
-                        {item.searchWord}
-                      </div>
-                    </div>
-                  </List.Item>
-                )
-              })
-            }
-          </List>
+          <>
+            <div id='font'>
+              热搜榜
+            </div>
+            <List id="hotli">
+              <ul id='hotli_ul'>
+                {
+                  hotMusic.map((item, index) => {
+                    return (
+                      <li onClick={hotMusicClk.bind(this, item.searchWord)}>
+                        <span>{index + 1}</span>  {item.searchWord}
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            </List>
+          </>
         )
       }
       {/* player */}

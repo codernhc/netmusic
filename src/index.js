@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from './App.tsx';
+import App from "./App.tsx";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
@@ -8,7 +8,6 @@ import { Context } from "./context/index.tsx";
 // import Route from "./router/index";
 // import service from "./service/index";
 // import FooterPlayer from "./components/FooterPlayer/index.tsx";
-
 
 // React Hook "useContext" cannot be called at the top level
 // const { player_lists } = useContext(DemoContext);
@@ -26,17 +25,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 //   console.log(res.data);
 // });
 
+
 root.render(
   <Context>
     <React.StrictMode>
       <BrowserRouter>
-        {/* {
-          // 判断player_lists是否有值
-          player_lists.length > 0 ? <FooterPlayer /> : null
-        }
-        <Route /> */}
-        {/* text: */}
-        <App></App>
+          <App />
       </BrowserRouter>
     </React.StrictMode>
   </Context>

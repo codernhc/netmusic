@@ -9,6 +9,41 @@
   font-size: 0.5rem;
   color: rgb(0, 0, 0);
 }
-.AiOutlineEllipsisStyle{
-  transform: rotate(90deg)
+.AiOutlineEllipsisStyle {
+  transform: rotate(90deg);
+}
+#hotli_ul {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-row-gap: 10px;
+  margin: 10px 15px;
+}
+#hotli_ul li:first-child span {
+  color: red;
+}
+#hotli_ul li:nth-child(3) span {
+  color: red;
+}
+#hotli_ul li:nth-child(2) span {
+  color: red;
+}
+#hotli {
+  border-radius: 20px;
+  margin: 10px;
+  /* border: 1px solid; */
+  background: rgb(237 237 237);
+}
+#font {
+  font-size: 1rem;
+  margin: 20px 15px;
+}
+#load {
+  margin: 20px 10px;
+  font-size: 14px;
+}
+.load_li {
+  margin: 10px 0px;
+}
+.load_icon{
+  margin: -2px 0px 0px 0px;
 }

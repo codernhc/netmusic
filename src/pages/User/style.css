@@ -41,13 +41,48 @@
   position: absolute;
   top: 0px;
   right: 5px;
-  background: rgba(255,255,255,.7);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
 }
 .recommend_name {
   font-size: 10px;
   text-align: left;
 }
-.recommend_card{
+.recommend_card {
   position: relative;
+}
+
+.font {
+  padding: 10px 20px !important;
+}
+
+.rs-drawer-dialog .rs-drawer-content {
+  background-color: #ccc;
+  overflow: auto;
+}
+
+.left_sidebar {
+  background-color: #fff;
+  border-radius: 15px !important;
+  margin: 20px;
+}
+
+.left_sidebar_dark {
+  background-color: #000;
+  border-radius: 15px !important;
+  margin: 20px;
+}
+
+.left_sidebar p {
+  margin: 10px 20px;
+  font-size: 11px;
+  color: #ccc;
+}
+.left_sidebar_dark p {
+  margin: 10px 20px;
+  font-size: 11px;
+  color: #ccc;
+}
+.rs-panel-body {
+  padding: 5px !important;
 }
